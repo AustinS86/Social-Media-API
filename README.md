@@ -7,6 +7,7 @@
 - [Usage](#usage)
 - [NPM'S](#npms)
 - [Link](#link)
+- [Screenshot](#screenshot)
 - [Questions](#questions)
 
 ## Description
@@ -33,6 +34,7 @@ After installing make sure to open up insomnia and use `localhost:3001`.
 [Social Media API](https://drive.google.com/file/d/1E-EMzNHJyLrFoIaLpfrT5zR3PH3z2gpA/view)
 
 ## Screenshot
+![Insomina Screenshot](https://user-images.githubusercontent.com/117120566/231294334-673a6327-7cb8-41ea-9f65-f1a5c1aa5d41.png)
 
 
 ## Questions
