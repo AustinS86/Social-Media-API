@@ -92,14 +92,14 @@ const thoughtController = {
             message: "Thought was created but no user associated with this id.",
           });
         }
-        res.json({ message: "Thought created successfully!" });
+        res.json({ message: "Thought deleted successfully!" });
       })
       .catch((err) => res.json(err));
   },
 
   addReaction({ params, body }, res) {
     Thought.findOneAndUpdate(
-      { _id: params.thoughId },
+      { _id: params.thoughtId },
       { $addToSet: { reactions: body } },
       { new: true, runValidators: true }
     )
