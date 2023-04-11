@@ -1,7 +1,7 @@
 const { User, Thought } = require("../models");
 
 const userController = {
-  //find all users
+  //This function find all users from the database
   getAllUser(req, res) {
     User.find({})
       .populate({
@@ -17,7 +17,7 @@ const userController = {
       });
   },
 
-  //finds user by associated id
+  //This function finds user by associated id
   getUserById({ params }, res) {
     User.findOne({ _id: params.id })
       .populate({
@@ -43,7 +43,7 @@ const userController = {
       });
   },
 
-  // creates user
+  // This function creates a user to the database
   createUser({ body }, res) {
     User.create(body)
       .then((dbUserData) => res.json(dbUserData))
@@ -64,7 +64,7 @@ const userController = {
       .catch((err) => res.json(err));
   },
 
-  //deletes user
+  //This function deletes user
   deleteUser({ params }, res) {
     User.findOneAndDelete({ _id: params.id })
       .then((dbThoughtData) => {
@@ -82,7 +82,7 @@ const userController = {
       .catch((err) => res.json(err));
   },
 
-  //adds friend
+  //This function adds friend to a specific user
   addFriend({ params }, res) {
     User.findOneAndUpdate(
       { _id: params.userId },
@@ -100,7 +100,7 @@ const userController = {
       })
       .catch((err) => res.json(err));
   },
-  //deletes friend
+  //This function deletes friend from a user
   removeFriend({ params }, res) {
     User.findOneAndUpdate(
       { _id: params.userId },
