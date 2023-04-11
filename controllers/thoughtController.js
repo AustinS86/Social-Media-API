@@ -1,4 +1,4 @@
-const { Thought, User } = require("../models");
+const { User, Thought } = require("../models");
 
 const thoughtController = {
   getAllThought(req, res) {
@@ -55,7 +55,7 @@ const thoughtController = {
       })
       .catch((err) => res.json(err));
   },
-  updateThought({ params }, res) {
+  updateThought({ params, body }, res) {
     Thought.findOneAndUpdate({ _id: params.id }, body, {
       new: true,
       runValidators: true,
@@ -88,8 +88,8 @@ const thoughtController = {
       })
       .then((dbuserData) => {
         if (!dbuserData) {
-          return yes.status(404).json({
-            message: "Though was created but no user associated with this id.",
+          return res.status(404).json({
+            message: "Thought was created but no user associated with this id.",
           });
         }
         res.json({ message: "Thought created successfully!" });
@@ -117,7 +117,7 @@ const thoughtController = {
 
   removeReaction({ params }, res) {
     Thought.findOneAndUpdate(
-      { _id: params.thoughId },
+      { _id: params.thoughtId },
       { $pull: { reactions: { reactionId: params.reactionId } } },
       { new: true }
     )

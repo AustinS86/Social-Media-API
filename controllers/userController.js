@@ -79,7 +79,7 @@ const userController = {
       .then(() => {
         res.json({ message: "User and thoughts deleted." });
       })
-      .catch((err) => res.josn(err));
+      .catch((err) => res.json(err));
   },
 
   //adds friend
@@ -102,7 +102,7 @@ const userController = {
   },
   //deletes friend
   removeFriend({ params }, res) {
-    Thought.findOneAndUpdate(
+    User.findOneAndUpdate(
       { _id: params.userId },
       { $pull: { friends: params.friendId } },
       { new: true }
